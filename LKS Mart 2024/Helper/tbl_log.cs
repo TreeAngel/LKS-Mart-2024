@@ -15,7 +15,7 @@ namespace LKS_Mart_2024.Helper
     public partial class tbl_log
     {
         public int id { get; set; }
-        public byte[] waktu { get; set; }
+        public System.DateTime waktu { get; set; }
         public string aktivitas { get; set; }
         public int user_id { get; set; }
     

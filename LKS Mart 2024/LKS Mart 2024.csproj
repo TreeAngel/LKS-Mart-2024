@@ -55,50 +55,84 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormLogin.Designer.cs">
-      <DependentUpon>FormLogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Helper\DbModel.Context.cs">
+    <Compile Include="Helper\HelperClass.cs" />
+    <Compile Include="Helper\LKSMart2024Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DbModel.Context.tt</DependentUpon>
+      <DependentUpon>LKSMart2024Model.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Helper\DbModel.cs">
+    <Compile Include="Helper\LKSMart2024Model.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DbModel.tt</DependentUpon>
+      <DependentUpon>LKSMart2024Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Helper\DbModel.Designer.cs">
+    <Compile Include="Helper\LKSMart2024Model.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DbModel.edmx</DependentUpon>
+      <DependentUpon>LKSMart2024Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Helper\sysdiagram.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
+      <DependentUpon>LKSMart2024Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Helper\tbl_barang.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
+      <DependentUpon>LKSMart2024Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Helper\tbl_log.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
+      <DependentUpon>LKSMart2024Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Helper\tbl_pelanggan.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
+      <DependentUpon>LKSMart2024Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Helper\tbl_transaksi.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
+      <DependentUpon>LKSMart2024Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Helper\tbl_user.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
+      <DependentUpon>LKSMart2024Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormLogin.resx">
+    <Compile Include="UserControls\Admins\UCKelolaLaporan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Admins\UCKelolaLaporan.Designer.cs">
+      <DependentUpon>UCKelolaLaporan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Admins\UCKelolaUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Admins\UCKelolaUser.Designer.cs">
+      <DependentUpon>UCKelolaUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Admins\UCLogActivity.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Admins\UCLogActivity.Designer.cs">
+      <DependentUpon>UCLogActivity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UCGudang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCGudang.Designer.cs">
+      <DependentUpon>UCGudang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UCKasir.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UCKasir.Designer.cs">
+      <DependentUpon>UCKasir.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\FormDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\FormDashboard.Designer.cs">
+      <DependentUpon>FormDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
-    </EmbeddedResource>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -109,12 +143,30 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EntityDeploy Include="Helper\DbModel.edmx">
+    <EmbeddedResource Include="UserControls\Admins\UCKelolaUser.resx">
+      <DependentUpon>UCKelolaUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Admins\UCLogActivity.resx">
+      <DependentUpon>UCLogActivity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UCGudang.resx">
+      <DependentUpon>UCGudang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UCKasir.resx">
+      <DependentUpon>UCKasir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\FormDashboard.resx">
+      <DependentUpon>FormDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Helper\LKSMart2024Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DbModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>LKSMart2024Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Helper\DbModel.edmx.diagram">
-      <DependentUpon>DbModel.edmx</DependentUpon>
+    <None Include="Helper\LKSMart2024Model.edmx.diagram">
+      <DependentUpon>LKSMart2024Model.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -141,19 +193,19 @@
     <None Include="Resources\administrator 1.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Helper\DbModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>DbModel.Context.cs</LastGenOutput>
-      <DependentUpon>DbModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Helper\DbModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DbModel.edmx</DependentUpon>
-      <LastGenOutput>DbModel.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="Helper\LKSMart2024Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LKSMart2024Model.edmx</DependentUpon>
+      <LastGenOutput>LKSMart2024Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Helper\LKSMart2024Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LKSMart2024Model.edmx</DependentUpon>
+      <LastGenOutput>LKSMart2024Model.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

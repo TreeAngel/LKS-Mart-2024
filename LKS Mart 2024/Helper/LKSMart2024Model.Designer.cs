@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\TreeAngel\source\repos\LKS Mart 2024\LKS Mart 2024\Helper\DbModel.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\Documents\Dokumen Pribadi\Dev\Visual Studio\LKS Mart 2024 Desktop\LKS Mart 2024\Helper\LKSMart2024Model.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
