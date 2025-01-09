@@ -26,13 +26,7 @@ namespace LKS_Mart_2024
 
         private void cbShowPass_CheckedChanged(object sender, EventArgs e)
         {
-            if (!cbShowPass.Checked)
-            {
-                tbPassword.UseSystemPasswordChar = true;
-            } else
-            {
-                tbPassword.UseSystemPasswordChar = false;
-            }
+            tbPassword.UseSystemPasswordChar = !cbShowPass.Checked;
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -50,7 +44,7 @@ namespace LKS_Mart_2024
                 return;
             }
             LKSMart2024Entities entities = new LKSMart2024Entities();
-            tbl_user user = entities.tbl_user.FirstOrDefault(x => x.nama.Equals(username) && x.password.Equals(password));
+            tbl_user user = entities.tbl_user.FirstOrDefault(x => x.username.Equals(username) && x.password.Equals(password));
             if (user == null)
             {
                 MessageBox.Show("Username atau password salah");

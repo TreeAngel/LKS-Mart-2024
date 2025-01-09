@@ -43,6 +43,7 @@ namespace LKS_Mart_2024.WinForms
             {
                 UserKasir();
             }
+            BtnActiveColor();
             timer.Start();
         }
 
@@ -65,7 +66,7 @@ namespace LKS_Mart_2024.WinForms
             panelAdminBtns.Visible = false;
             lblNonAdmin.Visible = true;
 
-            lblNonAdmin.Text = "KELOLA BARANG";
+            lblNonAdmin.Text = "KELOLA\nBARANG";
             lblUCActive.Text = "KELOLA BARANG";
             lblUserRole.Text = "Gudang";
             pbUserRole.Image = Properties.Resources.Gudang;
@@ -78,7 +79,7 @@ namespace LKS_Mart_2024.WinForms
             panelAdminBtns.Visible = false;
             lblNonAdmin.Visible = true;
 
-            lblNonAdmin.Text = "KELOLA TRANSAKSI";
+            lblNonAdmin.Text = "KELOLA\nTRANSAKSI";
             lblUCActive.Text = "FORM TRANSAKSI";
             lblUserRole.Text = "Kasir";
             pbUserRole.Image = Properties.Resources.cashier_1;

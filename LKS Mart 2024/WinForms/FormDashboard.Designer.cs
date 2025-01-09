@@ -31,26 +31,27 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSignOut = new System.Windows.Forms.Button();
+            this.pbUserRole = new System.Windows.Forms.PictureBox();
             this.lblUserRole = new System.Windows.Forms.Label();
             this.panelAdminBtns = new System.Windows.Forms.Panel();
             this.btnLogActivity = new System.Windows.Forms.Button();
             this.btnKelolaLaporan = new System.Windows.Forms.Button();
             this.btnKelolaUser = new System.Windows.Forms.Button();
+            this.lblNonAdmin = new System.Windows.Forms.Label();
             this.panelDashboard = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.lblUCActive = new System.Windows.Forms.Label();
             this.lblDateTime = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            this.lblNonAdmin = new System.Windows.Forms.Label();
-            this.pbUserRole = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            this.panelAdminBtns.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbUserRole)).BeginInit();
+            this.panelAdminBtns.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel1.Controls.Add(this.lblNonAdmin);
             this.panel1.Controls.Add(this.btnSignOut);
             this.panel1.Controls.Add(this.pbUserRole);
             this.panel1.Controls.Add(this.lblUserRole);
@@ -74,6 +75,17 @@
             this.btnSignOut.UseVisualStyleBackColor = false;
             this.btnSignOut.Click += new System.EventHandler(this.btnSignOut_Click);
             // 
+            // pbUserRole
+            // 
+            this.pbUserRole.Image = global::LKS_Mart_2024.Properties.Resources.administrator_1;
+            this.pbUserRole.InitialImage = global::LKS_Mart_2024.Properties.Resources.Logo;
+            this.pbUserRole.Location = new System.Drawing.Point(36, 92);
+            this.pbUserRole.Name = "pbUserRole";
+            this.pbUserRole.Size = new System.Drawing.Size(165, 165);
+            this.pbUserRole.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pbUserRole.TabIndex = 3;
+            this.pbUserRole.TabStop = false;
+            // 
             // lblUserRole
             // 
             this.lblUserRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -90,8 +102,7 @@
             this.panelAdminBtns.Controls.Add(this.btnLogActivity);
             this.panelAdminBtns.Controls.Add(this.btnKelolaLaporan);
             this.panelAdminBtns.Controls.Add(this.btnKelolaUser);
-            this.panelAdminBtns.Controls.Add(this.lblNonAdmin);
-            this.panelAdminBtns.Location = new System.Drawing.Point(23, 277);
+            this.panelAdminBtns.Location = new System.Drawing.Point(23, 272);
             this.panelAdminBtns.Name = "panelAdminBtns";
             this.panelAdminBtns.Size = new System.Drawing.Size(200, 159);
             this.panelAdminBtns.TabIndex = 0;
@@ -135,6 +146,18 @@
             this.btnKelolaUser.Text = "Kelola User";
             this.btnKelolaUser.UseVisualStyleBackColor = false;
             this.btnKelolaUser.Click += new System.EventHandler(this.btnKelolaUser_Click);
+            // 
+            // lblNonAdmin
+            // 
+            this.lblNonAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNonAdmin.ForeColor = System.Drawing.Color.White;
+            this.lblNonAdmin.Location = new System.Drawing.Point(0, 260);
+            this.lblNonAdmin.Name = "lblNonAdmin";
+            this.lblNonAdmin.Size = new System.Drawing.Size(238, 159);
+            this.lblNonAdmin.TabIndex = 4;
+            this.lblNonAdmin.Text = "User Role";
+            this.lblNonAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblNonAdmin.Visible = false;
             // 
             // panelDashboard
             // 
@@ -181,29 +204,6 @@
             // 
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // lblNonAdmin
-            // 
-            this.lblNonAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNonAdmin.ForeColor = System.Drawing.Color.White;
-            this.lblNonAdmin.Location = new System.Drawing.Point(-23, 0);
-            this.lblNonAdmin.Name = "lblNonAdmin";
-            this.lblNonAdmin.Size = new System.Drawing.Size(238, 159);
-            this.lblNonAdmin.TabIndex = 4;
-            this.lblNonAdmin.Text = "User Role";
-            this.lblNonAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblNonAdmin.Visible = false;
-            // 
-            // pbUserRole
-            // 
-            this.pbUserRole.Image = global::LKS_Mart_2024.Properties.Resources.administrator_1;
-            this.pbUserRole.InitialImage = global::LKS_Mart_2024.Properties.Resources.Logo;
-            this.pbUserRole.Location = new System.Drawing.Point(36, 92);
-            this.pbUserRole.Name = "pbUserRole";
-            this.pbUserRole.Size = new System.Drawing.Size(165, 165);
-            this.pbUserRole.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pbUserRole.TabIndex = 3;
-            this.pbUserRole.TabStop = false;
-            // 
             // FormDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -225,8 +225,8 @@
             this.Load += new System.EventHandler(this.FormDashboard_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panelAdminBtns.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbUserRole)).EndInit();
+            this.panelAdminBtns.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

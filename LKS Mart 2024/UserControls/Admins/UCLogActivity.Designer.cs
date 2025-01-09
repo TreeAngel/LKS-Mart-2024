@@ -34,10 +34,12 @@
             this.dtpUntil = new System.Windows.Forms.DateTimePicker();
             this.btnFilter = new System.Windows.Forms.Button();
             this.dgvLogActivity = new System.Windows.Forms.DataGridView();
+            this.clmId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmUsername = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmDateTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmActivity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmAlamat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmNoTelpon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLogActivity)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,21 +102,29 @@
             this.dgvLogActivity.AllowUserToAddRows = false;
             this.dgvLogActivity.AllowUserToDeleteRows = false;
             this.dgvLogActivity.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvLogActivity.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
             this.dgvLogActivity.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLogActivity.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmId,
             this.clmNo,
-            this.clmUsername,
-            this.clmDateTime,
-            this.clmActivity});
+            this.clmRole,
+            this.clmName,
+            this.clmAlamat,
+            this.clmNoTelpon});
             this.dgvLogActivity.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvLogActivity.Location = new System.Drawing.Point(0, 132);
+            this.dgvLogActivity.Location = new System.Drawing.Point(0, 130);
             this.dgvLogActivity.MultiSelect = false;
             this.dgvLogActivity.Name = "dgvLogActivity";
             this.dgvLogActivity.ReadOnly = true;
-            this.dgvLogActivity.Size = new System.Drawing.Size(643, 380);
-            this.dgvLogActivity.TabIndex = 9;
-            this.dgvLogActivity.TabStop = false;
+            this.dgvLogActivity.RowHeadersVisible = false;
+            this.dgvLogActivity.Size = new System.Drawing.Size(643, 382);
+            this.dgvLogActivity.TabIndex = 20;
+            // 
+            // clmId
+            // 
+            this.clmId.HeaderText = "ID";
+            this.clmId.Name = "clmId";
+            this.clmId.ReadOnly = true;
+            this.clmId.Visible = false;
             // 
             // clmNo
             // 
@@ -122,23 +132,29 @@
             this.clmNo.Name = "clmNo";
             this.clmNo.ReadOnly = true;
             // 
-            // clmUsername
+            // clmRole
             // 
-            this.clmUsername.HeaderText = "Username";
-            this.clmUsername.Name = "clmUsername";
-            this.clmUsername.ReadOnly = true;
+            this.clmRole.HeaderText = "Tipe User";
+            this.clmRole.Name = "clmRole";
+            this.clmRole.ReadOnly = true;
             // 
-            // clmDateTime
+            // clmName
             // 
-            this.clmDateTime.HeaderText = "Waktu";
-            this.clmDateTime.Name = "clmDateTime";
-            this.clmDateTime.ReadOnly = true;
+            this.clmName.HeaderText = "Nama";
+            this.clmName.Name = "clmName";
+            this.clmName.ReadOnly = true;
             // 
-            // clmActivity
+            // clmAlamat
             // 
-            this.clmActivity.HeaderText = "Aktivitas";
-            this.clmActivity.Name = "clmActivity";
-            this.clmActivity.ReadOnly = true;
+            this.clmAlamat.HeaderText = "Alamat";
+            this.clmAlamat.Name = "clmAlamat";
+            this.clmAlamat.ReadOnly = true;
+            // 
+            // clmNoTelpon
+            // 
+            this.clmNoTelpon.HeaderText = "Telepon";
+            this.clmNoTelpon.Name = "clmNoTelpon";
+            this.clmNoTelpon.ReadOnly = true;
             // 
             // UCLogActivity
             // 
@@ -167,9 +183,11 @@
         private System.Windows.Forms.DateTimePicker dtpUntil;
         private System.Windows.Forms.Button btnFilter;
         private System.Windows.Forms.DataGridView dgvLogActivity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmId;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmUsername;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmDateTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmActivity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmRole;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmAlamat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmNoTelpon;
     }
 }

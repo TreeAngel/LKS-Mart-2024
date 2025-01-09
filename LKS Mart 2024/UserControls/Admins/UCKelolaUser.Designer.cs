@@ -44,14 +44,16 @@
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.dgvUser = new System.Windows.Forms.DataGridView();
+            this.tbSearch = new System.Windows.Forms.TextBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.panelInput = new System.Windows.Forms.Panel();
+            this.clmId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmAlamat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmNoTelpon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tbSearch = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.panelInput = new System.Windows.Forms.Panel();
+            this.cbPassword = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).BeginInit();
             this.panelInput.SuspendLayout();
             this.SuspendLayout();
@@ -72,19 +74,19 @@
             this.tbName.Location = new System.Drawing.Point(47, 79);
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(253, 20);
-            this.tbName.TabIndex = 1;
+            this.tbName.TabIndex = 3;
             // 
             // cbRole
             // 
             this.cbRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbRole.FormattingEnabled = true;
             this.cbRole.Items.AddRange(new object[] {
-            "Gudang",
-            "Kasir"});
+            "gudang",
+            "kasir"});
             this.cbRole.Location = new System.Drawing.Point(47, 34);
             this.cbRole.Name = "cbRole";
             this.cbRole.Size = new System.Drawing.Size(253, 21);
-            this.cbRole.TabIndex = 2;
+            this.cbRole.TabIndex = 1;
             // 
             // label2
             // 
@@ -112,7 +114,7 @@
             this.tbUsername.Location = new System.Drawing.Point(324, 34);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(253, 20);
-            this.tbUsername.TabIndex = 4;
+            this.tbUsername.TabIndex = 2;
             // 
             // label4
             // 
@@ -130,7 +132,8 @@
             this.tbPassword.Location = new System.Drawing.Point(324, 79);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(253, 20);
-            this.tbPassword.TabIndex = 6;
+            this.tbPassword.TabIndex = 4;
+            this.tbPassword.UseSystemPasswordChar = true;
             // 
             // label5
             // 
@@ -148,7 +151,8 @@
             this.tbPhone.Location = new System.Drawing.Point(47, 123);
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(253, 20);
-            this.tbPhone.TabIndex = 8;
+            this.tbPhone.TabIndex = 6;
+            this.tbPhone.TextChanged += new System.EventHandler(this.tbPhone_TextChanged);
             // 
             // label6
             // 
@@ -167,37 +171,46 @@
             this.tbAddress.Multiline = true;
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.Size = new System.Drawing.Size(253, 66);
-            this.tbAddress.TabIndex = 10;
+            this.tbAddress.TabIndex = 7;
             // 
             // btnAdd
             // 
             this.btnAdd.AutoSize = true;
+            this.btnAdd.BackColor = System.Drawing.Color.Green;
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.Location = new System.Drawing.Point(333, 120);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 12;
+            this.btnAdd.Size = new System.Drawing.Size(75, 30);
+            this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "Tambah";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnEdit
             // 
             this.btnEdit.AutoSize = true;
+            this.btnEdit.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.btnEdit.ForeColor = System.Drawing.Color.White;
             this.btnEdit.Location = new System.Drawing.Point(414, 120);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(75, 23);
-            this.btnEdit.TabIndex = 13;
+            this.btnEdit.Size = new System.Drawing.Size(75, 30);
+            this.btnEdit.TabIndex = 9;
             this.btnEdit.Text = "Edit";
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.UseVisualStyleBackColor = false;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnDelete
             // 
             this.btnDelete.AutoSize = true;
+            this.btnDelete.BackColor = System.Drawing.Color.Crimson;
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
             this.btnDelete.Location = new System.Drawing.Point(495, 120);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
-            this.btnDelete.TabIndex = 14;
+            this.btnDelete.Size = new System.Drawing.Size(73, 30);
+            this.btnDelete.TabIndex = 10;
             this.btnDelete.Text = "Hapus";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // dgvUser
             // 
@@ -206,6 +219,7 @@
             this.dgvUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.clmId,
             this.clmNo,
             this.clmRole,
             this.clmName,
@@ -216,8 +230,60 @@
             this.dgvUser.MultiSelect = false;
             this.dgvUser.Name = "dgvUser";
             this.dgvUser.ReadOnly = true;
+            this.dgvUser.RowHeadersVisible = false;
             this.dgvUser.Size = new System.Drawing.Size(643, 216);
             this.dgvUser.TabIndex = 15;
+            this.dgvUser.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUser_CellContentClick);
+            // 
+            // tbSearch
+            // 
+            this.tbSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbSearch.Location = new System.Drawing.Point(324, 267);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(173, 20);
+            this.tbSearch.TabIndex = 11;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.AutoSize = true;
+            this.btnSearch.Location = new System.Drawing.Point(502, 260);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 30);
+            this.btnSearch.TabIndex = 12;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // panelInput
+            // 
+            this.panelInput.Controls.Add(this.cbPassword);
+            this.panelInput.Controls.Add(this.label1);
+            this.panelInput.Controls.Add(this.tbName);
+            this.panelInput.Controls.Add(this.cbRole);
+            this.panelInput.Controls.Add(this.btnDelete);
+            this.panelInput.Controls.Add(this.label2);
+            this.panelInput.Controls.Add(this.btnEdit);
+            this.panelInput.Controls.Add(this.tbUsername);
+            this.panelInput.Controls.Add(this.btnAdd);
+            this.panelInput.Controls.Add(this.label3);
+            this.panelInput.Controls.Add(this.label6);
+            this.panelInput.Controls.Add(this.tbPassword);
+            this.panelInput.Controls.Add(this.tbAddress);
+            this.panelInput.Controls.Add(this.label4);
+            this.panelInput.Controls.Add(this.label5);
+            this.panelInput.Controls.Add(this.tbPhone);
+            this.panelInput.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelInput.Location = new System.Drawing.Point(0, 0);
+            this.panelInput.Name = "panelInput";
+            this.panelInput.Size = new System.Drawing.Size(643, 252);
+            this.panelInput.TabIndex = 19;
+            // 
+            // clmId
+            // 
+            this.clmId.HeaderText = "ID";
+            this.clmId.Name = "clmId";
+            this.clmId.ReadOnly = true;
+            this.clmId.Visible = false;
             // 
             // clmNo
             // 
@@ -249,46 +315,15 @@
             this.clmNoTelpon.Name = "clmNoTelpon";
             this.clmNoTelpon.ReadOnly = true;
             // 
-            // tbSearch
+            // cbPassword
             // 
-            this.tbSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbSearch.Location = new System.Drawing.Point(329, 270);
-            this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(173, 20);
-            this.tbSearch.TabIndex = 16;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.AutoSize = true;
-            this.btnSearch.Location = new System.Drawing.Point(507, 267);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 18;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            // 
-            // panelInput
-            // 
-            this.panelInput.Controls.Add(this.label1);
-            this.panelInput.Controls.Add(this.tbName);
-            this.panelInput.Controls.Add(this.cbRole);
-            this.panelInput.Controls.Add(this.btnDelete);
-            this.panelInput.Controls.Add(this.label2);
-            this.panelInput.Controls.Add(this.btnEdit);
-            this.panelInput.Controls.Add(this.tbUsername);
-            this.panelInput.Controls.Add(this.btnAdd);
-            this.panelInput.Controls.Add(this.label3);
-            this.panelInput.Controls.Add(this.label6);
-            this.panelInput.Controls.Add(this.tbPassword);
-            this.panelInput.Controls.Add(this.tbAddress);
-            this.panelInput.Controls.Add(this.label4);
-            this.panelInput.Controls.Add(this.label5);
-            this.panelInput.Controls.Add(this.tbPhone);
-            this.panelInput.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelInput.Location = new System.Drawing.Point(0, 0);
-            this.panelInput.Name = "panelInput";
-            this.panelInput.Size = new System.Drawing.Size(643, 252);
-            this.panelInput.TabIndex = 19;
+            this.cbPassword.AutoSize = true;
+            this.cbPassword.Location = new System.Drawing.Point(584, 81);
+            this.cbPassword.Name = "cbPassword";
+            this.cbPassword.Size = new System.Drawing.Size(15, 14);
+            this.cbPassword.TabIndex = 5;
+            this.cbPassword.UseVisualStyleBackColor = true;
+            this.cbPassword.CheckedChanged += new System.EventHandler(this.cbPassword_CheckedChanged);
             // 
             // UCKelolaUser
             // 
@@ -327,13 +362,15 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.DataGridView dgvUser;
+        private System.Windows.Forms.TextBox tbSearch;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.Panel panelInput;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmId;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmRole;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmName;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmAlamat;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmNoTelpon;
-        private System.Windows.Forms.TextBox tbSearch;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Panel panelInput;
+        private System.Windows.Forms.CheckBox cbPassword;
     }
 }
