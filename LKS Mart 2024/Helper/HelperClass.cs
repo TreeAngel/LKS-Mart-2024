@@ -26,6 +26,18 @@ namespace LKS_Mart_2024.Helper
             {
                 item.SelectedIndex = -1;
             }
+            foreach (var item in control.Controls.OfType<NumericUpDown>())
+            {
+                item.Value = 0;
+            }
+        }
+
+        public static void TextBoxNumberOnly(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsNumber(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

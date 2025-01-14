@@ -43,7 +43,8 @@ namespace LKS_Mart_2024
                 MessageBox.Show("Isi username dan password");
                 return;
             }
-            LKSMart2024Entities entities = new LKSMart2024Entities();
+            //LKSMart2024Entities entities = new LKSMart2024Entities();
+            LKSMart2024Entities2 entities = new LKSMart2024Entities2();
             tbl_user user = entities.tbl_user.FirstOrDefault(x => x.username.Equals(username) && x.password.Equals(password));
             if (user == null)
             {

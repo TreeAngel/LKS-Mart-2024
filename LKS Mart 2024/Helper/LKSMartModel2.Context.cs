@@ -13,10 +13,10 @@ namespace LKS_Mart_2024.Helper
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class LKSMart2024Entities : DbContext
+    public partial class LKSMart2024Entities2 : DbContext
     {
-        public LKSMart2024Entities()
-            : base("name=LKSMart2024Entities")
+        public LKSMart2024Entities2()
+            : base("name=LKSMart2024Entities2")
         {
         }
     
@@ -25,7 +25,6 @@ namespace LKS_Mart_2024.Helper
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<tbl_barang> tbl_barang { get; set; }
         public virtual DbSet<tbl_log> tbl_log { get; set; }
         public virtual DbSet<tbl_pelanggan> tbl_pelanggan { get; set; }

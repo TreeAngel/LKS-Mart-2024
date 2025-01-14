@@ -19,12 +19,13 @@ namespace LKS_Mart_2024.UserControls.Admins
         {
             HelperClass.ClearValue(this);
             GetUsers(null);
-            tbPhone.KeyPress += TextBoxNumberOnly;
+            tbPhone.KeyPress += HelperClass.TextBoxNumberOnly;
         }
 
         private void GetUsers(String find)
         {
-            LKSMart2024Entities entities = new LKSMart2024Entities();
+            //LKSMart2024Entities entities = new LKSMart2024Entities();
+            LKSMart2024Entities2 entities = new LKSMart2024Entities2();
             var data = entities.tbl_user.Where(x => !x.tipe_user.ToLower().Contains("admin")).ToList();
             if (find != null)
             {
@@ -65,8 +66,9 @@ namespace LKS_Mart_2024.UserControls.Admins
                 MessageBox.Show("User not found");
                 return;
             }
-            LKSMart2024Entities entities = new LKSMart2024Entities();
-            selectedUser = entities.tbl_user.FirstOrDefault(x => x.id == userId);
+            //LKSMart2024Entities entities = new LKSMart2024Entities();
+            LKSMart2024Entities2 entities = new LKSMart2024Entities2();
+            selectedUser = entities.tbl_user.Find(userId);
             if (selectedUser != null)
             {
                 cbRole.SelectedItem = selectedUser.tipe_user;
@@ -75,6 +77,9 @@ namespace LKS_Mart_2024.UserControls.Admins
                 tbPassword.Text = selectedUser.password;
                 tbPhone.Text = selectedUser.telepon;
                 tbAddress.Text = selectedUser.alamat;
+            } else
+            {
+                MessageBox.Show("User tidak ada");
             }
         }
 
@@ -97,7 +102,8 @@ namespace LKS_Mart_2024.UserControls.Admins
             {
                 return;
             }
-            LKSMart2024Entities entities = new LKSMart2024Entities();
+            //LKSMart2024Entities entities = new LKSMart2024Entities();
+            LKSMart2024Entities2 entities = new LKSMart2024Entities2();
             tbl_user newUser = new tbl_user
             {
                 tipe_user = cbRole.SelectedItem.ToString(),
@@ -117,6 +123,11 @@ namespace LKS_Mart_2024.UserControls.Admins
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
+            if (selectedUser is null)
+            {
+                MessageBox.Show("Pilih user");
+                return;
+            }
             if (!HelperClass.ValidateValue(panelInput))
             {
                 MessageBox.Show("Isi data yang diperlukan");
@@ -126,8 +137,14 @@ namespace LKS_Mart_2024.UserControls.Admins
             {
                 return;
             }
-            LKSMart2024Entities entities = new LKSMart2024Entities();
+            //LKSMart2024Entities entities = new LKSMart2024Entities();
+            LKSMart2024Entities2 entities = new LKSMart2024Entities2();
             tbl_user editedUser = entities.tbl_user.Find(selectedUser.id);
+            if (editedUser is null)
+            {
+                MessageBox.Show("User not found");
+                return;
+            }
             editedUser.tipe_user = cbRole.SelectedItem.ToString();
             editedUser.username = tbUsername.Text.ToString();
             editedUser.nama = tbName.Text.ToString();
@@ -143,7 +160,7 @@ namespace LKS_Mart_2024.UserControls.Admins
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (!HelperClass.ValidateValue(panelInput))
+            if (selectedUser is null)
             {
                 MessageBox.Show("Pilih user yang ada");
                 return;
@@ -152,22 +169,20 @@ namespace LKS_Mart_2024.UserControls.Admins
             {
                 return;
             }
-            LKSMart2024Entities entities = new LKSMart2024Entities();
+            //LKSMart2024Entities entities = new LKSMart2024Entities();
+            LKSMart2024Entities2 entities = new LKSMart2024Entities2();
             tbl_user deletedUser = entities.tbl_user.Find(selectedUser.id);
+            if (deletedUser is null)
+            {
+                MessageBox.Show("User not found");
+                return;
+            }
             entities.tbl_user.Remove(deletedUser);
             entities.SaveChanges();
             GetUsers(null);
             HelperClass.ClearValue(panelInput);
             selectedUser = new tbl_user();
             MessageBox.Show("Data berhasil dihapus");
-        }
-
-        private void TextBoxNumberOnly(object sender, KeyPressEventArgs e)
-        {
-            if (!Char.IsNumber(e.KeyChar) && !Char.IsControl(e.KeyChar))
-            {
-                e.Handled = true;
-            } 
         }
 
         private void cbPassword_CheckedChanged(object sender, EventArgs e)
