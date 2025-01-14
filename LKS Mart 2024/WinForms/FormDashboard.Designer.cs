@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblNonAdmin = new System.Windows.Forms.Label();
             this.btnSignOut = new System.Windows.Forms.Button();
             this.pbUserRole = new System.Windows.Forms.PictureBox();
             this.lblUserRole = new System.Windows.Forms.Label();
@@ -37,12 +38,12 @@
             this.btnLogActivity = new System.Windows.Forms.Button();
             this.btnKelolaLaporan = new System.Windows.Forms.Button();
             this.btnKelolaUser = new System.Windows.Forms.Button();
-            this.lblNonAdmin = new System.Windows.Forms.Label();
             this.panelDashboard = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.lblUCActive = new System.Windows.Forms.Label();
             this.lblDateTime = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.btnNamaKasir = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbUserRole)).BeginInit();
             this.panelAdminBtns.SuspendLayout();
@@ -61,6 +62,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(241, 561);
             this.panel1.TabIndex = 0;
+            // 
+            // lblNonAdmin
+            // 
+            this.lblNonAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNonAdmin.ForeColor = System.Drawing.Color.White;
+            this.lblNonAdmin.Location = new System.Drawing.Point(0, 260);
+            this.lblNonAdmin.Name = "lblNonAdmin";
+            this.lblNonAdmin.Size = new System.Drawing.Size(238, 159);
+            this.lblNonAdmin.TabIndex = 4;
+            this.lblNonAdmin.Text = "User Role";
+            this.lblNonAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblNonAdmin.Visible = false;
             // 
             // btnSignOut
             // 
@@ -147,18 +160,6 @@
             this.btnKelolaUser.UseVisualStyleBackColor = false;
             this.btnKelolaUser.Click += new System.EventHandler(this.btnKelolaUser_Click);
             // 
-            // lblNonAdmin
-            // 
-            this.lblNonAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNonAdmin.ForeColor = System.Drawing.Color.White;
-            this.lblNonAdmin.Location = new System.Drawing.Point(0, 260);
-            this.lblNonAdmin.Name = "lblNonAdmin";
-            this.lblNonAdmin.Size = new System.Drawing.Size(238, 159);
-            this.lblNonAdmin.TabIndex = 4;
-            this.lblNonAdmin.Text = "User Role";
-            this.lblNonAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblNonAdmin.Visible = false;
-            // 
             // panelDashboard
             // 
             this.panelDashboard.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -204,12 +205,25 @@
             // 
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // btnNamaKasir
+            // 
+            this.btnNamaKasir.AutoSize = true;
+            this.btnNamaKasir.Enabled = false;
+            this.btnNamaKasir.Location = new System.Drawing.Point(797, 17);
+            this.btnNamaKasir.Name = "btnNamaKasir";
+            this.btnNamaKasir.Size = new System.Drawing.Size(75, 23);
+            this.btnNamaKasir.TabIndex = 6;
+            this.btnNamaKasir.Text = "Kasir 1";
+            this.btnNamaKasir.UseVisualStyleBackColor = true;
+            this.btnNamaKasir.Visible = false;
+            // 
             // FormDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(884, 561);
             this.ControlBox = false;
+            this.Controls.Add(this.btnNamaKasir);
             this.Controls.Add(this.lblDateTime);
             this.Controls.Add(this.lblUCActive);
             this.Controls.Add(this.label1);
@@ -248,5 +262,6 @@
         private System.Windows.Forms.Label lblDateTime;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label lblNonAdmin;
+        private System.Windows.Forms.Button btnNamaKasir;
     }
 }

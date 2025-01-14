@@ -34,17 +34,18 @@ namespace LKS_Mart_2024.WinForms
             if (session.tipe_user.ToLower().Contains("admin"))
             {
                 UserAdmin();
+                timer.Start();
             }
             if (session.tipe_user.ToLower().Contains("gudang"))
             {
                 UserGudang();
+                timer.Start();
             }
             if (session.tipe_user.ToLower().Contains("kasir"))
             {
                 UserKasir();
             }
             BtnActiveColor();
-            timer.Start();
         }
 
         private void UserAdmin()
@@ -53,6 +54,7 @@ namespace LKS_Mart_2024.WinForms
             panelDashboard.Controls.Add(logActivity);
             panelAdminBtns.Visible = true;
             lblNonAdmin.Visible = false;
+            lblDateTime.Visible = true;
 
             lblUCActive.Text = "LOG ACTIVITY";
             lblUserRole.Text = "Admin";
@@ -65,6 +67,7 @@ namespace LKS_Mart_2024.WinForms
             panelDashboard.Controls.Add(gudang);
             panelAdminBtns.Visible = false;
             lblNonAdmin.Visible = true;
+            lblDateTime.Visible = true;
 
             lblNonAdmin.Text = "KELOLA\nBARANG";
             lblUCActive.Text = "KELOLA BARANG";
@@ -78,7 +81,10 @@ namespace LKS_Mart_2024.WinForms
             panelDashboard.Controls.Add(kasir);
             panelAdminBtns.Visible = false;
             lblNonAdmin.Visible = true;
+            lblDateTime.Visible = false;
+            btnNamaKasir.Visible = true;
 
+            btnNamaKasir.Text = session.nama;
             lblNonAdmin.Text = "KELOLA\nTRANSAKSI";
             lblUCActive.Text = "FORM TRANSAKSI";
             lblUserRole.Text = "Kasir";

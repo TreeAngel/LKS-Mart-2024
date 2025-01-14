@@ -43,6 +43,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.dtpExpired = new System.Windows.Forms.DateTimePicker();
             this.panelInput = new System.Windows.Forms.Panel();
+            this.numJumlahBarang = new System.Windows.Forms.NumericUpDown();
             this.dgvBarang = new System.Windows.Forms.DataGridView();
             this.clmId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmIdBarang = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,10 +55,9 @@
             this.clmHargaSatuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSearch = new System.Windows.Forms.Button();
             this.tbSearch = new System.Windows.Forms.TextBox();
-            this.numJumlahBarang = new System.Windows.Forms.NumericUpDown();
             this.panelInput.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBarang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numJumlahBarang)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBarang)).BeginInit();
             this.SuspendLayout();
             // 
             // tbKode
@@ -222,6 +222,18 @@
             this.panelInput.Size = new System.Drawing.Size(643, 232);
             this.panelInput.TabIndex = 20;
             // 
+            // numJumlahBarang
+            // 
+            this.numJumlahBarang.Location = new System.Drawing.Point(144, 66);
+            this.numJumlahBarang.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.numJumlahBarang.Name = "numJumlahBarang";
+            this.numJumlahBarang.Size = new System.Drawing.Size(253, 20);
+            this.numJumlahBarang.TabIndex = 20;
+            // 
             // dgvBarang
             // 
             this.dgvBarang.AllowUserToAddRows = false;
@@ -315,13 +327,6 @@
             this.tbSearch.Size = new System.Drawing.Size(173, 20);
             this.tbSearch.TabIndex = 22;
             // 
-            // numJumlahBarang
-            // 
-            this.numJumlahBarang.Location = new System.Drawing.Point(144, 66);
-            this.numJumlahBarang.Name = "numJumlahBarang";
-            this.numJumlahBarang.Size = new System.Drawing.Size(253, 20);
-            this.numJumlahBarang.TabIndex = 20;
-            // 
             // UCGudang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -335,8 +340,8 @@
             this.Load += new System.EventHandler(this.UCGudang_Load);
             this.panelInput.ResumeLayout(false);
             this.panelInput.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvBarang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numJumlahBarang)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBarang)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
