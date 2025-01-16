@@ -1,4 +1,5 @@
-﻿using LKS_Mart_2024.Helper;
+﻿using LKS_Mart_2024.Util;
+using LKS_Mart_2024.Helper;
 using System;
 using System.Data;
 using System.Linq;
@@ -24,8 +25,7 @@ namespace LKS_Mart_2024.UserControls.Admins
 
         private void GetUsers(String find)
         {
-            //LKSMart2024Entities entities = new LKSMart2024Entities();
-            LKSMart2024Entities2 entities = new LKSMart2024Entities2();
+            LKSMart2024Entities entities = new LKSMart2024Entities();
             var data = entities.tbl_user.Where(x => !x.tipe_user.ToLower().Contains("admin")).ToList();
             if (find != null)
             {
@@ -66,8 +66,7 @@ namespace LKS_Mart_2024.UserControls.Admins
                 MessageBox.Show("User not found");
                 return;
             }
-            //LKSMart2024Entities entities = new LKSMart2024Entities();
-            LKSMart2024Entities2 entities = new LKSMart2024Entities2();
+            LKSMart2024Entities entities = new LKSMart2024Entities();
             selectedUser = entities.tbl_user.Find(userId);
             if (selectedUser != null)
             {
@@ -102,8 +101,7 @@ namespace LKS_Mart_2024.UserControls.Admins
             {
                 return;
             }
-            //LKSMart2024Entities entities = new LKSMart2024Entities();
-            LKSMart2024Entities2 entities = new LKSMart2024Entities2();
+            LKSMart2024Entities entities = new LKSMart2024Entities();
             tbl_user newUser = new tbl_user
             {
                 tipe_user = cbRole.SelectedItem.ToString(),
@@ -137,8 +135,7 @@ namespace LKS_Mart_2024.UserControls.Admins
             {
                 return;
             }
-            //LKSMart2024Entities entities = new LKSMart2024Entities();
-            LKSMart2024Entities2 entities = new LKSMart2024Entities2();
+            LKSMart2024Entities entities = new LKSMart2024Entities();
             tbl_user editedUser = entities.tbl_user.Find(selectedUser.id);
             if (editedUser is null)
             {
@@ -169,8 +166,7 @@ namespace LKS_Mart_2024.UserControls.Admins
             {
                 return;
             }
-            //LKSMart2024Entities entities = new LKSMart2024Entities();
-            LKSMart2024Entities2 entities = new LKSMart2024Entities2();
+            LKSMart2024Entities entities = new LKSMart2024Entities();
             tbl_user deletedUser = entities.tbl_user.Find(selectedUser.id);
             if (deletedUser is null)
             {

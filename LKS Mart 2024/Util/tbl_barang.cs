@@ -7,22 +7,26 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LKS_Mart_2024.Helper
+namespace LKS_Mart_2024.Util
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class tbl_pelanggan
+    public partial class tbl_barang
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tbl_pelanggan()
+        public tbl_barang()
         {
             this.tbl_transaksi = new HashSet<tbl_transaksi>();
         }
     
         public int id { get; set; }
+        public string kode { get; set; }
         public string nama { get; set; }
-        public string telepon { get; set; }
+        public System.DateTime expired_date { get; set; }
+        public long jumlah { get; set; }
+        public string satuan { get; set; }
+        public long harga_satuan { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tbl_transaksi> tbl_transaksi { get; set; }

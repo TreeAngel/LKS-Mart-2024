@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LKS_Mart_2024.Helper
+namespace LKS_Mart_2024.Util
 {
     using System;
     using System.Collections.Generic;

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelInput = new System.Windows.Forms.Panel();
+            this.numQty = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.tbTelepon = new System.Windows.Forms.TextBox();
             this.cbMenu = new System.Windows.Forms.ComboBox();
@@ -50,22 +51,17 @@
             this.lblKembalian = new System.Windows.Forms.Label();
             this.lblTotalHarga = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.lblDisc = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.dgvKeranjang = new System.Windows.Forms.DataGridView();
-            this.clmId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label14 = new System.Windows.Forms.Label();
             this.clmIdBarang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmKodeBarang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmNamaBarang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmExpiredDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmHargaSatuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmQty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmSatuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmHargaSatuan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label14 = new System.Windows.Forms.Label();
-            this.numQty = new System.Windows.Forms.NumericUpDown();
             this.panelInput.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKeranjang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numQty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKeranjang)).BeginInit();
             this.SuspendLayout();
             // 
             // panelInput
@@ -90,6 +86,19 @@
             this.panelInput.Size = new System.Drawing.Size(643, 160);
             this.panelInput.TabIndex = 20;
             // 
+            // numQty
+            // 
+            this.numQty.Location = new System.Drawing.Point(257, 80);
+            this.numQty.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.numQty.Name = "numQty";
+            this.numQty.Size = new System.Drawing.Size(194, 20);
+            this.numQty.TabIndex = 12;
+            this.numQty.ValueChanged += new System.EventHandler(this.numQty_ValueChanged);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -107,6 +116,7 @@
             this.tbTelepon.Name = "tbTelepon";
             this.tbTelepon.Size = new System.Drawing.Size(194, 20);
             this.tbTelepon.TabIndex = 3;
+            this.tbTelepon.TextChanged += new System.EventHandler(this.tbTelepon_TextChanged);
             // 
             // cbMenu
             // 
@@ -119,6 +129,7 @@
             this.cbMenu.Name = "cbMenu";
             this.cbMenu.Size = new System.Drawing.Size(194, 21);
             this.cbMenu.TabIndex = 1;
+            this.cbMenu.SelectedIndexChanged += new System.EventHandler(this.cbMenu_SelectedIndexChanged);
             // 
             // btnReset
             // 
@@ -131,6 +142,7 @@
             this.btnReset.TabIndex = 10;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // label2
             // 
@@ -163,6 +175,7 @@
             this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "Tambah";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // label3
             // 
@@ -233,6 +246,7 @@
             this.btnSimpan.TabIndex = 22;
             this.btnSimpan.Text = "Print/Simpan";
             this.btnSimpan.UseVisualStyleBackColor = false;
+            this.btnSimpan.Click += new System.EventHandler(this.btnSimpan_Click);
             // 
             // btnBayar
             // 
@@ -245,12 +259,13 @@
             this.btnBayar.TabIndex = 24;
             this.btnBayar.Text = "Bayar";
             this.btnBayar.UseVisualStyleBackColor = false;
+            this.btnBayar.Click += new System.EventHandler(this.btnBayar_Click);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(44, 415);
+            this.label7.Location = new System.Drawing.Point(44, 412);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(43, 18);
             this.label7.TabIndex = 12;
@@ -259,7 +274,7 @@
             // tbCash2Pay
             // 
             this.tbCash2Pay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbCash2Pay.Location = new System.Drawing.Point(93, 413);
+            this.tbCash2Pay.Location = new System.Drawing.Point(93, 410);
             this.tbCash2Pay.Name = "tbCash2Pay";
             this.tbCash2Pay.Size = new System.Drawing.Size(148, 20);
             this.tbCash2Pay.TabIndex = 12;
@@ -269,7 +284,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label8.Location = new System.Drawing.Point(44, 479);
+            this.label8.Location = new System.Drawing.Point(44, 469);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(127, 17);
             this.label8.TabIndex = 25;
@@ -279,7 +294,7 @@
             // 
             this.lblKembalian.AutoSize = true;
             this.lblKembalian.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblKembalian.Location = new System.Drawing.Point(177, 479);
+            this.lblKembalian.Location = new System.Drawing.Point(177, 469);
             this.lblKembalian.Name = "lblKembalian";
             this.lblKembalian.Size = new System.Drawing.Size(82, 17);
             this.lblKembalian.TabIndex = 26;
@@ -289,7 +304,7 @@
             // 
             this.lblTotalHarga.AutoSize = true;
             this.lblTotalHarga.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblTotalHarga.Location = new System.Drawing.Point(526, 399);
+            this.lblTotalHarga.Location = new System.Drawing.Point(526, 413);
             this.lblTotalHarga.Name = "lblTotalHarga";
             this.lblTotalHarga.Size = new System.Drawing.Size(82, 17);
             this.lblTotalHarga.TabIndex = 28;
@@ -299,31 +314,11 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label11.Location = new System.Drawing.Point(433, 399);
+            this.label11.Location = new System.Drawing.Point(433, 413);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(87, 17);
             this.label11.TabIndex = 27;
             this.label11.Text = "Total Harga:";
-            // 
-            // lblDisc
-            // 
-            this.lblDisc.AutoSize = true;
-            this.lblDisc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblDisc.Location = new System.Drawing.Point(526, 416);
-            this.lblDisc.Name = "lblDisc";
-            this.lblDisc.Size = new System.Drawing.Size(82, 17);
-            this.lblDisc.TabIndex = 30;
-            this.lblDisc.Text = "Rp.000.000";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label13.Location = new System.Drawing.Point(433, 416);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(39, 17);
-            this.label13.TabIndex = 29;
-            this.label13.Text = "Disc:";
             // 
             // dgvKeranjang
             // 
@@ -332,14 +327,12 @@
             this.dgvKeranjang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvKeranjang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKeranjang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clmId,
             this.clmIdBarang,
             this.clmKodeBarang,
             this.clmNamaBarang,
-            this.clmExpiredDate,
+            this.clmHargaSatuan,
             this.clmQty,
-            this.clmSatuan,
-            this.clmHargaSatuan});
+            this.clmSatuan});
             this.dgvKeranjang.Location = new System.Drawing.Point(0, 184);
             this.dgvKeranjang.MultiSelect = false;
             this.dgvKeranjang.Name = "dgvKeranjang";
@@ -348,12 +341,15 @@
             this.dgvKeranjang.Size = new System.Drawing.Size(643, 208);
             this.dgvKeranjang.TabIndex = 31;
             // 
-            // clmId
+            // label14
             // 
-            this.clmId.HeaderText = "ID";
-            this.clmId.Name = "clmId";
-            this.clmId.ReadOnly = true;
-            this.clmId.Visible = false;
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(3, 163);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(74, 18);
+            this.label14.TabIndex = 12;
+            this.label14.Text = "Keranjang";
             // 
             // clmIdBarang
             // 
@@ -373,11 +369,11 @@
             this.clmNamaBarang.Name = "clmNamaBarang";
             this.clmNamaBarang.ReadOnly = true;
             // 
-            // clmExpiredDate
+            // clmHargaSatuan
             // 
-            this.clmExpiredDate.HeaderText = "Expired Date";
-            this.clmExpiredDate.Name = "clmExpiredDate";
-            this.clmExpiredDate.ReadOnly = true;
+            this.clmHargaSatuan.HeaderText = "Harga Satuan";
+            this.clmHargaSatuan.Name = "clmHargaSatuan";
+            this.clmHargaSatuan.ReadOnly = true;
             // 
             // clmQty
             // 
@@ -387,37 +383,9 @@
             // 
             // clmSatuan
             // 
-            this.clmSatuan.HeaderText = "Satuan";
+            this.clmSatuan.HeaderText = "Subtotal";
             this.clmSatuan.Name = "clmSatuan";
             this.clmSatuan.ReadOnly = true;
-            // 
-            // clmHargaSatuan
-            // 
-            this.clmHargaSatuan.HeaderText = "Harga Satuan";
-            this.clmHargaSatuan.Name = "clmHargaSatuan";
-            this.clmHargaSatuan.ReadOnly = true;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(3, 163);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(74, 18);
-            this.label14.TabIndex = 12;
-            this.label14.Text = "Keranjang";
-            // 
-            // numQty
-            // 
-            this.numQty.Location = new System.Drawing.Point(257, 80);
-            this.numQty.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-            this.numQty.Name = "numQty";
-            this.numQty.Size = new System.Drawing.Size(194, 20);
-            this.numQty.TabIndex = 12;
             // 
             // UCKasir
             // 
@@ -425,8 +393,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label14);
             this.Controls.Add(this.dgvKeranjang);
-            this.Controls.Add(this.lblDisc);
-            this.Controls.Add(this.label13);
             this.Controls.Add(this.lblTotalHarga);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.lblKembalian);
@@ -441,8 +407,8 @@
             this.Load += new System.EventHandler(this.UCKasir_Load);
             this.panelInput.ResumeLayout(false);
             this.panelInput.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKeranjang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numQty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKeranjang)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -472,18 +438,14 @@
         private System.Windows.Forms.Label lblKembalian;
         private System.Windows.Forms.Label lblTotalHarga;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label lblDisc;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DataGridView dgvKeranjang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmId;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.NumericUpDown numQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmIdBarang;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmKodeBarang;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmNamaBarang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmExpiredDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmHargaSatuan;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmQty;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmSatuan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmHargaSatuan;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.NumericUpDown numQty;
     }
 }

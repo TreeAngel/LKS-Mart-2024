@@ -1,4 +1,5 @@
 ﻿using LKS_Mart_2024.Helper;
+using LKS_Mart_2024.Util;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,7 +30,7 @@ namespace LKS_Mart_2024.UserControls
 
         private void GetData(string search)
         {
-            LKSMart2024Entities2 entities = new LKSMart2024Entities2();
+            LKSMart2024Entities entities = new LKSMart2024Entities();
             var data = entities.tbl_barang.ToList();
             if (!String.IsNullOrEmpty(search))
             {
@@ -70,8 +71,7 @@ namespace LKS_Mart_2024.UserControls
                 MessageBox.Show("Barang tidak ada");
                 return;
             }
-            //LKSMart2024Entities entities = new LKSMart2024Entities();
-            LKSMart2024Entities2 entities = new LKSMart2024Entities2();
+            LKSMart2024Entities entities = new LKSMart2024Entities();
             selectedBarang = entities.tbl_barang.Find(barangId);
             if (selectedBarang != null)
             {
@@ -111,7 +111,7 @@ namespace LKS_Mart_2024.UserControls
             {
                 return;
             }
-            LKSMart2024Entities2 entities = new LKSMart2024Entities2();
+            LKSMart2024Entities entities = new LKSMart2024Entities();
             try
             {
                 tbl_barang newBarang = new tbl_barang
@@ -153,7 +153,7 @@ namespace LKS_Mart_2024.UserControls
             {
                 return;
             }
-            LKSMart2024Entities2 entities = new LKSMart2024Entities2();
+            LKSMart2024Entities entities = new LKSMart2024Entities();
             try
             {
                 tbl_barang editedBarang = entities.tbl_barang.Find(selectedBarang.id);
@@ -191,7 +191,7 @@ namespace LKS_Mart_2024.UserControls
             {
                 return;
             }
-            LKSMart2024Entities2 entities = new LKSMart2024Entities2();
+            LKSMart2024Entities entities = new LKSMart2024Entities();
             try
             {
                 tbl_barang deletedBarang = entities.tbl_barang.Find(selectedBarang.id);

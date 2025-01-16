@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LKS_Mart_2024.Helper
+namespace LKS_Mart_2024.Util
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class LKSMart2024Entities2 : DbContext
+    public partial class LKSMart2024Entities : DbContext
     {
-        public LKSMart2024Entities2()
-            : base("name=LKSMart2024Entities2")
+        public LKSMart2024Entities()
+            : base("name=LKSMart2024Entities")
         {
         }
     

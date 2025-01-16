@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="LKSMart2024Model2.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="LKSMart2024Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tbl_barang">
           <Key>
             <PropertyRef Name="id" />
@@ -107,7 +107,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="LKSMart2024Model2StoreContainer">
+        <EntityContainer Name="LKSMart2024ModelStoreContainer">
           <EntitySet Name="tbl_barang" EntityType="Self.tbl_barang" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_log" EntityType="Self.tbl_log" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_pelanggan" EntityType="Self.tbl_pelanggan" Schema="dbo" store:Type="Tables" />
@@ -134,7 +134,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="LKSMart2024Model2" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="LKSMart2024Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="tbl_barang">
           <Key>
             <PropertyRef Name="id" />
@@ -245,7 +245,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="LKSMart2024Entities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="LKSMart2024Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tbl_barang" EntityType="Self.tbl_barang" />
           <EntitySet Name="tbl_log" EntityType="Self.tbl_log" />
           <EntitySet Name="tbl_pelanggan" EntityType="Self.tbl_pelanggan" />
@@ -273,9 +273,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="LKSMart2024Model2StoreContainer" CdmEntityContainer="LKSMart2024Entities2">
+        <EntityContainerMapping StorageEntityContainer="LKSMart2024ModelStoreContainer" CdmEntityContainer="LKSMart2024Entities">
           <EntitySetMapping Name="tbl_barang">
-            <EntityTypeMapping TypeName="LKSMart2024Model2.tbl_barang">
+            <EntityTypeMapping TypeName="LKSMart2024Model.tbl_barang">
               <MappingFragment StoreEntitySet="tbl_barang">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="kode" ColumnName="kode" />
@@ -288,7 +288,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tbl_log">
-            <EntityTypeMapping TypeName="LKSMart2024Model2.tbl_log">
+            <EntityTypeMapping TypeName="LKSMart2024Model.tbl_log">
               <MappingFragment StoreEntitySet="tbl_log">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="waktu" ColumnName="waktu" />
@@ -298,7 +298,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tbl_pelanggan">
-            <EntityTypeMapping TypeName="LKSMart2024Model2.tbl_pelanggan">
+            <EntityTypeMapping TypeName="LKSMart2024Model.tbl_pelanggan">
               <MappingFragment StoreEntitySet="tbl_pelanggan">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="nama" ColumnName="nama" />
@@ -307,7 +307,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tbl_transaksi">
-            <EntityTypeMapping TypeName="LKSMart2024Model2.tbl_transaksi">
+            <EntityTypeMapping TypeName="LKSMart2024Model.tbl_transaksi">
               <MappingFragment StoreEntitySet="tbl_transaksi">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="no" ColumnName="no" />
@@ -321,7 +321,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tbl_user">
-            <EntityTypeMapping TypeName="LKSMart2024Model2.tbl_user">
+            <EntityTypeMapping TypeName="LKSMart2024Model.tbl_user">
               <MappingFragment StoreEntitySet="tbl_user">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="tipe_user" ColumnName="tipe_user" />

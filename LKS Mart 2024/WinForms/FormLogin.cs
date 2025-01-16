@@ -1,4 +1,5 @@
 ﻿using LKS_Mart_2024.Helper;
+using LKS_Mart_2024.Util;
 using LKS_Mart_2024.WinForms;
 using System;
 using System.Collections.Generic;
@@ -43,16 +44,24 @@ namespace LKS_Mart_2024
                 MessageBox.Show("Isi username dan password");
                 return;
             }
-            //LKSMart2024Entities entities = new LKSMart2024Entities();
-            LKSMart2024Entities2 entities = new LKSMart2024Entities2();
-            tbl_user user = entities.tbl_user.FirstOrDefault(x => x.username.Equals(username) && x.password.Equals(password));
-            if (user == null)
+            try
             {
-                MessageBox.Show("Username atau password salah");
+
+                LKSMart2024Entities entities = new LKSMart2024Entities();
+                tbl_user user = entities.tbl_user.FirstOrDefault(x => x.username.Equals(username) && x.password.Equals(password));
+                if (user == null)
+                {
+                    MessageBox.Show("Username atau password salah");
+                    return;
+                }
+                HelperClass.userSession = user;
+                new FormDashboard().ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
                 return;
             }
-            HelperClass.userSession = user;
-            new FormDashboard().ShowDialog();
         }
     }
 }
